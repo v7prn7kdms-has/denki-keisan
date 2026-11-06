@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "fridge-runtime",
+    "kind": "runtime",
+    "appliance": "fridge",
+    "title": "停電で冷蔵庫は何時間動く？容量別の計算表",
+    "lead": "停電時に冷蔵庫をどれだけ動かせるかを、公式の容量から計算しました。"
+  },
+  {
+    "slug": "dryer-output",
+    "kind": "capability",
+    "appliance": "dryer",
+    "title": "ドライヤーが使えるポータブル電源はどれ？定格出力で判定",
+    "lead": "消費電力の大きいドライヤーを動かせるかは、容量ではなく定格出力で決まります。"
+  },
+  {
+    "slug": "capacity-per-kg",
+    "kind": "density",
+    "title": "持ち運びやすいのはどれ？1kgあたりの容量で比較",
+    "lead": "カタログの重さだけでなく、1kgあたりに運べる電力量で比較します。"
+  },
+  {
+    "slug": "lifetime-energy",
+    "kind": "lifetime",
+    "title": "寿命で比べると？一生で取り出せる電力量を試算",
+    "lead": "サイクル回数の数字だけでは機種ごとの差が見えないため、累計の電力量に換算しました。"
+  },
+  {
+    "slug": "home-shelter-day",
+    "kind": "scenario",
+    "title": "在宅避難の1日に必要な電力量は？何日持つかを試算",
+    "lead": "冷蔵庫、照明、ノートPCを同時に使った場合に何日持つかを試算しました。",
+    "loads": [
+      [
+        "fridge",
+        24
+      ],
+      [
+        "led",
+        6
+      ],
+      [
+        "laptop",
+        3
+      ]
+    ]
+  }
+]

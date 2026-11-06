@@ -1,0 +1,50 @@
+name: weekly-publish
+on:
+  schedule:
+    - cron: "0 0 * * 1"  # 毎週月曜 9:00 JST
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      SITE_NAME: ${{ vars.SITE_NAME }}
+      SITE_URL: ${{ vars.SITE_URL }}
+      OPERATOR_NAME: ${{ vars.OPERATOR_NAME }}
+      AMAZON_TAG: ${{ vars.AMAZON_TAG }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install anthropic
+      - run: python -m unittest discover -s tests
+      - run: python -m autosite.cli publish
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      - run: python -m autosite.cli announce
+        continue-on-error: true
+        env:
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      - name: Save state
+        run: |
+          git config user.name "autosite"
+          git config user.email "autosite@users.noreply.github.com"
+          git add state/published.json
+          git diff --cached --quiet || git commit -m "Update published state"
+          git push
