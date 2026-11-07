@@ -52,8 +52,12 @@ def build(cfg, entries, today, client=None):
         result = an.analyze(topic, products, appliances)
         if len(result["rows"]) < an.MIN_ROWS:
             continue  # 古い機種を外した結果、比較が成り立たない記事は載せない
-        text = entry.get("text") or commentary.write(topic, result, client)
-        entry["text"] = text
+        key = an.facts_key(result)
+        if entry.get("text") and entry.get("facts_key") == key:
+            text = entry["text"]
+        else:  # 機種の追加などで表が変わったら、古い解説文は使わない
+            text = commentary.write(topic, result, client)
+        entry["text"], entry["facts_key"] = text, key
         (DIST / "articles" / f'{topic["slug"]}.html').write_text(
             render.article(cfg, topic, result, text, entry["date"]), encoding="utf-8")
         shown.append(topic)

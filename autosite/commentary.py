@@ -26,6 +26,8 @@ def fallback(analysis):
     if analysis["best"]:
         points.append(f'この比較で最も大きい値は{analysis["best"][0]}の{analysis["best"][1]}です。')
         points.append(f'最も小さい値は{analysis["worst"][0]}の{analysis["worst"][1]}です。')
+    if not points:
+        points.append(f'この表には{len(analysis["rows"])}つの区分を掲載しています。区分ごとの違いを用途に合わせて比べてください。')
     if "count_ok" in analysis:
         points.append(f'定格出力の範囲に収まるのは{analysis["count_ok"]}です。')
     return {"points": points, "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"}
@@ -38,7 +40,7 @@ def numbers_allowed(text, analysis):
 
 
 def analysis_facts(analysis):
-    return {k: analysis.get(k) for k in ("headers", "rows", "assumption", "best", "worst", "count_ok")}
+    return {k: analysis.get(k) for k in ("breakdown", "headers", "rows", "assumption", "best", "worst", "count_ok")}
 
 
 def ask_claude(topic, analysis, client=None):

@@ -29,7 +29,7 @@
     "slug": "home-shelter-day",
     "kind": "scenario",
     "title": "在宅避難の1日に必要な電力量は？何日持つかを試算",
-    "lead": "冷蔵庫、照明、ノートPCを同時に使った場合に何日持つかを試算しました。",
+    "lead": "冷蔵庫、照明、ノートPCを同時に使った場合に、1kWh以上の機種で何日持つかを試算しました。",
     "loads": [
       [
         "fridge",
@@ -43,6 +43,30 @@
         "laptop",
         3
       ]
-    ]
+    ],
+    "min_wh": 1000
+  },
+  {
+    "slug": "small-class-charges",
+    "kind": "charges",
+    "max_wh": 600,
+    "devices": [
+      "phone",
+      "laptop_battery"
+    ],
+    "title": "600Wh以下の小型機：スマホとノートPCは何回充電できる？",
+    "lead": "キャンプや車中泊で使う小型のポータブル電源で、スマホとノートPCを何回充電できるかを計算しました。"
+  },
+  {
+    "slug": "charge-speed",
+    "kind": "charge_speed",
+    "title": "充電の速さを比較：コンセントから1分あたり何Wh貯まる？",
+    "lead": "満充電までの時間は容量によって変わるため、1分あたりに充電できる電力量に換算して比べます。"
+  },
+  {
+    "slug": "capacity-classes",
+    "kind": "classes",
+    "title": "容量帯で選ぶ：小型・1kWh・2kWhクラスの違い",
+    "lead": "容量帯ごとに、出力、重さ、停電時の使用時間の目安がどう変わるかをまとめました。"
   }
 ]

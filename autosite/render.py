@@ -60,7 +60,9 @@ def article(cfg, topic, analysis, text, published_on):
         + (f'<br><small>{escape(p["note"])}</small>' if p.get("note") else "") + "</li>"
         for p in analysis["products"])
     points = "".join(f"<li>{escape(t)}</li>" for t in text["points"])
-    body = f"""<article><h1>{escape(topic["title"])}</h1><p>{escape(topic["lead"])}</p>
+    extra = analysis.get("breakdown")
+    breakdown = f'<h2>1日に使う電力量の内訳</h2>{table(extra["headers"], extra["rows"])}' if extra else ""
+    body = f"""<article><h1>{escape(topic["title"])}</h1><p>{escape(topic["lead"])}</p>{breakdown}
 <h2>計算結果</h2>{table(analysis["headers"], analysis["rows"])}
 <p><small>{escape(analysis["assumption"])}</small></p>
 <h2>選ぶときのポイント</h2><ul>{points}</ul><p>{escape(text["caution"])}</p>

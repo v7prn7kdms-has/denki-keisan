@@ -22,5 +22,15 @@
     "avg_w": 1200,
     "peak_w": 1200,
     "basis": "一般的な強風モードを想定した仮定値"
+  },
+  "phone": {
+    "name": "スマートフォン",
+    "battery_wh": 15,
+    "basis": "電池容量15Whの機種を想定した仮定値"
+  },
+  "laptop_battery": {
+    "name": "ノートPC",
+    "battery_wh": 60,
+    "basis": "電池容量60Whの機種を想定した仮定値"
   }
 }

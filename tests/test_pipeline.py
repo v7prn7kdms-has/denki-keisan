@@ -35,13 +35,36 @@ class FakeClient:
 class AnalysisTest(unittest.TestCase):
     def test_fridge_runtime_math(self):
         _, a = result("fridge-runtime")
-        self.assertEqual(a["best"][1], "約29時間")  # 1152Wh * 0.85 / 34W = 28.8
-        self.assertEqual(a["worst"][1], "約13時間")
+        self.assertEqual(a["best"][1], "約51時間")  # 2048Wh * 0.85 / 34W = 51.2
+        self.assertEqual(a["worst"][1], "約6時間")  # 230Wh * 0.85 / 34W = 5.75
 
-    def test_capability_excludes_nothing_and_flags_low_output(self):
+    def test_capability_flags_low_output(self):
         _, a = result("dryer-output")
-        self.assertEqual(a["count_ok"], "4機種")
+        self.assertEqual(a["count_ok"], "7機種")
         self.assertEqual(a["rows"][-1][2], "定格超過")
+
+    def test_topic_capacity_filter(self):
+        _, a = result("small-class-charges")
+        self.assertTrue(all(p["capacity_wh"] <= 600 for p in a["products"]))
+        self.assertEqual(a["rows"][-1][3], "約13回")  # 230Wh * 0.85 / 15Wh = 13.0
+
+    def test_charge_speed_uses_published_times_only(self):
+        _, a = result("charge-speed")
+        self.assertTrue(all(p["ac_full_charge_min"] for p in a["products"]))
+        self.assertEqual(a["best"][1], "約20.7Wh/分")  # 2048Wh / 99分
+
+    def test_classes_cover_each_band(self):
+        _, a = result("capacity-classes")
+        self.assertEqual([r[0][:2] for r in a["rows"]], ["小型", "1k", "2k"])
+
+    def test_scenario_breakdown_adds_up(self):
+        _, a = result("home-shelter-day")
+        self.assertEqual(a["breakdown"]["rows"][-1][3], "1026Wh")  # 34*24 + 10*6 + 50*3
+        self.assertTrue(all(p["capacity_wh"] >= 1000 for p in a["products"]))
+
+    def test_decimal_capacity_is_not_rounded(self):
+        _, a = result("small-class-charges")
+        self.assertIn("268.8Wh", [r[1] for r in a["rows"]])
 
     def test_missing_specs_are_never_estimated(self):
         _, a = result("capacity-per-kg")
@@ -66,6 +89,13 @@ class CommentaryTest(unittest.TestCase):
         topic, a = result("fridge-runtime")
         text = commentary.write(topic, a, FakeClient({"points": [], "caution": ""}, stop="refusal"))
         self.assertEqual(text, commentary.fallback(a))
+
+
+class StaleTextTest(unittest.TestCase):
+    def test_changed_table_invalidates_saved_text(self):
+        _, a = result("fridge-runtime")
+        changed = dict(a, rows=a["rows"][:-1])
+        self.assertNotEqual(an.facts_key(a), an.facts_key(changed))
 
 
 class GateTest(unittest.TestCase):
