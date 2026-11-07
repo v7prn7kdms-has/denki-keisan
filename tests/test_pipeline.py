@@ -114,6 +114,9 @@ class BeforeRegistrationTest(unittest.TestCase):
 
 
 class LinkAndPostTest(unittest.TestCase):
+    def test_home_canonical_matches_sitemap(self):
+        self.assertIn('rel="canonical" href="https://example.com/"', render.home(CFG, [], PRODUCTS))
+
     def test_search_link_needs_no_asin(self):
         url = render.amazon_url(PRODUCTS[0], "abc-22")
         self.assertTrue(url.startswith("https://www.amazon.co.jp/s?k="))

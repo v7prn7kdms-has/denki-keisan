@@ -35,7 +35,7 @@ def promotion(cfg):
 
 
 def page(cfg, title, description, body, base, path):
-    canonical = f'{cfg["site_url"].rstrip("/")}/{path}'
+    canonical = f'{cfg["site_url"].rstrip("/")}/{"" if path == "index.html" else path}'
     return f"""<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(description)}">
