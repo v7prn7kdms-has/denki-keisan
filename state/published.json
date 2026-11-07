@@ -35,5 +35,17 @@
       ],
       "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"
     }
+  },
+  {
+    "slug": "lifetime-energy",
+    "title": "寿命で比べると？一生で取り出せる電力量を試算",
+    "date": "2026-11-07",
+    "text": {
+      "points": [
+        "この比較で最も大きい値はAnker Solix C1000 Gen 2 Portable Power Stationの約3,686kWhです。",
+        "最も小さい値はJackery ポータブル電源 500 Newの約2,611kWhです。"
+      ],
+      "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"
+    }
   }
 ]
