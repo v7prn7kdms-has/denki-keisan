@@ -6,7 +6,7 @@ from types import SimpleNamespace
 import unittest
 
 from autosite import analysis as an
-from autosite import announce, commentary, gate, render
+from autosite import announce, commentary, gate, render, report
 
 TODAY = date(2026, 11, 5)
 CFG = {"site_name": "テスト", "site_url": "https://example.com", "operator": "運営", "tag": "abc-22"}
@@ -89,6 +89,16 @@ class CommentaryTest(unittest.TestCase):
         topic, a = result("fridge-runtime")
         text = commentary.write(topic, a, FakeClient({"points": [], "caution": ""}, stop="refusal"))
         self.assertEqual(text, commentary.fallback(a))
+
+
+class ReportTest(unittest.TestCase):
+    def test_remaining_topics_skip_published(self):
+        left = report.remaining_topics([{"slug": "fridge-runtime"}], TODAY)
+        self.assertNotIn("fridge-runtime", [t["slug"] for t in left])
+        self.assertEqual(len(left), len(TOPICS) - 1)
+
+    def test_first_stale_date(self):
+        self.assertEqual(report.stale_dates(TODAY)[0][0], date(2027, 5, 4))
 
 
 class StaleTextTest(unittest.TestCase):

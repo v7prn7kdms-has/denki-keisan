@@ -9,7 +9,7 @@ import shutil
 import sys
 
 from . import analysis as an
-from . import announce, commentary, gate, render
+from . import announce, commentary, gate, render, report
 
 STATE = an.ROOT / "state" / "published.json"
 DIST = an.ROOT / "dist"
@@ -106,10 +106,17 @@ def cmd_announce(cfg):
 
 def main():
     parser = argparse.ArgumentParser(prog="autosite")
-    parser.add_argument("command", choices=["build", "publish", "announce"])
+    parser.add_argument("command", choices=["build", "publish", "announce", "report"])
     parser.add_argument("--preview", action="store_true", help="全記事を設定なしで dist/ に生成する")
+    parser.add_argument("--repo", default="v7prn7kdms-has/denki-keisan")
+    parser.add_argument("--site", default="https://v7prn7kdms-has.github.io/denki-keisan")
+    parser.add_argument("--tag", default="denkikeisan-22")
+    parser.add_argument("--associate-since", default="2026-11-07")
     args = parser.parse_args()
     today = date.today()
+    if args.command == "report":  # 公開用の設定は使わず、公開中のサイトとGitHubを読むだけ
+        print(report.run(args.repo, args.site, args.tag, args.associate_since, today))
+        return
     cfg = load_config(args.preview)
     if args.command == "publish":
         cmd_publish(cfg, today)
