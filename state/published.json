@@ -5,11 +5,12 @@
     "date": "2026-11-07",
     "text": {
       "points": [
-        "この比較で最も大きい値はBLUETTI AC180の約29時間です。",
-        "最も小さい値はJackery ポータブル電源 500 Newの約13時間です。"
+        "この比較で最も大きい値はAnker Solix C2000 Gen 2 Portable Power Stationの約51時間です。",
+        "最も小さい値はEcoFlow RIVER 3 (230)の約6時間です。"
       ],
       "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"
-    }
+    },
+    "facts_key": "[[\"機種\", \"容量\", \"使える電力量の目安\", \"冷蔵庫の連続使用目安\"], [[\"Anker Solix C2000 Gen 2 Portable Power Station\", \"2048Wh\", \"1741Wh\", \"約51時間\"], [\"EcoFlow DELTA 3 Max（2048Wh）\", \"2048Wh\", \"1741Wh\", \"約51時間\"], [\"Jackery ポータブル電源 2000 New V2\", \"2048Wh\", \"1741Wh\", \"約51時間\"], [\"BLUETTI AC180\", \"1152Wh\", \"979Wh\", \"約29時間\"], [\"Anker Solix C1000 Gen 2 Portable Power Station\", \"1024Wh\", \"870Wh\", \"約26時間\"], [\"Jackery ポータブル電源 1000 New V3\", \"1024Wh\", \"870Wh\", \"約26時間\"], [\"EcoFlow DELTA 3 Classic\", \"1024Wh\", \"870Wh\", \"約26時間\"], [\"Jackery ポータブル電源 500 New\", \"512Wh\", \"435Wh\", \"約13時間\"], [\"BLUETTI EB3A\", \"268.8Wh\", \"228Wh\", \"約7時間\"], [\"EcoFlow RIVER 3 (230)\", \"230Wh\", \"196Wh\", \"約6時間\"]], null]"
   },
   {
     "slug": "dryer-output",
@@ -17,12 +18,13 @@
     "date": "2026-11-07",
     "text": {
       "points": [
-        "この比較で最も大きい値はBLUETTI AC180の1800Wです。",
-        "最も小さい値はJackery ポータブル電源 500 Newの500Wです。",
-        "定格出力の範囲に収まるのは4機種です。"
+        "この比較で最も大きい値はEcoFlow DELTA 3 Max（2048Wh）の2200Wです。",
+        "最も小さい値はEcoFlow RIVER 3 (230)の300Wです。",
+        "定格出力の範囲に収まるのは7機種です。"
       ],
       "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"
-    }
+    },
+    "facts_key": "[[\"機種\", \"定格出力\", \"ドライヤー（1200W想定）\", \"余裕\"], [[\"EcoFlow DELTA 3 Max（2048Wh）\", \"2200W\", \"定格内\", \"+1000W\"], [\"Jackery ポータブル電源 2000 New V2\", \"2200W\", \"定格内\", \"+1000W\"], [\"Anker Solix C2000 Gen 2 Portable Power Station\", \"2000W\", \"定格内\", \"+800W\"], [\"BLUETTI AC180\", \"1800W\", \"定格内\", \"+600W\"], [\"Anker Solix C1000 Gen 2 Portable Power Station\", \"1550W\", \"定格内\", \"+350W\"], [\"Jackery ポータブル電源 1000 New V3\", \"1500W\", \"定格内\", \"+300W\"], [\"EcoFlow DELTA 3 Classic\", \"1500W\", \"定格内\", \"+300W\"], [\"BLUETTI EB3A\", \"600W\", \"定格超過\", \"-600W\"], [\"Jackery ポータブル電源 500 New\", \"500W\", \"定格超過\", \"-700W\"], [\"EcoFlow RIVER 3 (230)\", \"300W\", \"定格超過\", \"-900W\"]], null]"
   },
   {
     "slug": "capacity-per-kg",
@@ -30,11 +32,12 @@
     "date": "2026-11-07",
     "text": {
       "points": [
-        "この比較で最も大きい値はJackery ポータブル電源 1000 New V3の97Wh/kgです。",
+        "この比較で最も大きい値はAnker Solix C2000 Gen 2 Portable Power Stationの108Wh/kgです。",
         "最も小さい値はBLUETTI AC180の68Wh/kgです。"
       ],
       "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"
-    }
+    },
+    "facts_key": "[[\"機種\", \"容量\", \"重さ\", \"1kgあたりの容量\"], [[\"Anker Solix C2000 Gen 2 Portable Power Station\", \"2048Wh\", \"約18.9kg\", \"108Wh/kg\"], [\"Jackery ポータブル電源 1000 New V3\", \"1024Wh\", \"約10.6kg\", \"97Wh/kg\"], [\"Anker Solix C1000 Gen 2 Portable Power Station\", \"1024Wh\", \"約11.3kg\", \"91Wh/kg\"], [\"EcoFlow DELTA 3 Classic\", \"1024Wh\", \"約12.1kg\", \"85Wh/kg\"], [\"BLUETTI AC180\", \"1152Wh\", \"約17.0kg\", \"68Wh/kg\"]], null]"
   },
   {
     "slug": "lifetime-energy",
@@ -42,10 +45,24 @@
     "date": "2026-11-07",
     "text": {
       "points": [
-        "この比較で最も大きい値はAnker Solix C1000 Gen 2 Portable Power Stationの約3,686kWhです。",
-        "最も小さい値はJackery ポータブル電源 500 Newの約2,611kWhです。"
+        "この比較で最も大きい値はAnker Solix C2000 Gen 2 Portable Power Stationの約7,373kWhです。",
+        "最も小さい値はBLUETTI EB3Aの約605kWhです。"
       ],
       "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"
-    }
+    },
+    "facts_key": "[[\"機種\", \"サイクル数\", \"残存容量\", \"累計で取り出せる電力量の試算\"], [[\"Anker Solix C2000 Gen 2 Portable Power Station\", \"4000回\", \"80%\", \"約7,373kWh\"], [\"Jackery ポータブル電源 2000 New V2\", \"4000回\", \"70%\", \"約6,963kWh\"], [\"Anker Solix C1000 Gen 2 Portable Power Station\", \"4000回\", \"80%\", \"約3,686kWh\"], [\"BLUETTI AC180\", \"3500回\", \"80%\", \"約3,629kWh\"], [\"Jackery ポータブル電源 500 New\", \"6000回\", \"70%\", \"約2,611kWh\"], [\"EcoFlow RIVER 3 (230)\", \"3000回\", \"80%\", \"約621kWh\"], [\"BLUETTI EB3A\", \"2500回\", \"80%\", \"約605kWh\"]], null]"
+  },
+  {
+    "slug": "home-shelter-day",
+    "title": "在宅避難の1日に必要な電力量は？何日持つかを試算",
+    "date": "2026-11-09",
+    "text": {
+      "points": [
+        "この比較で最も大きい値はAnker Solix C2000 Gen 2 Portable Power Stationの約1.7日です。",
+        "最も小さい値はEcoFlow DELTA 3 Classicの約0.8日です。"
+      ],
+      "caution": "計算値は目安です。家電の実際の消費電力や使用環境で変わります。"
+    },
+    "facts_key": "[[\"機種\", \"容量\", \"使える電力量の目安\", \"持つ日数の目安\"], [[\"Anker Solix C2000 Gen 2 Portable Power Station\", \"2048Wh\", \"1741Wh\", \"約1.7日\"], [\"EcoFlow DELTA 3 Max（2048Wh）\", \"2048Wh\", \"1741Wh\", \"約1.7日\"], [\"Jackery ポータブル電源 2000 New V2\", \"2048Wh\", \"1741Wh\", \"約1.7日\"], [\"BLUETTI AC180\", \"1152Wh\", \"979Wh\", \"約1.0日\"], [\"Anker Solix C1000 Gen 2 Portable Power Station\", \"1024Wh\", \"870Wh\", \"約0.8日\"], [\"Jackery ポータブル電源 1000 New V3\", \"1024Wh\", \"870Wh\", \"約0.8日\"], [\"EcoFlow DELTA 3 Classic\", \"1024Wh\", \"870Wh\", \"約0.8日\"]], {\"headers\": [\"家電\", \"消費電力の目安\", \"1日の使用時間\", \"1日の電力量\", \"割合\"], \"rows\": [[\"冷蔵庫\", \"34W\", \"24時間\", \"816Wh\", \"80%\"], [\"LED照明\", \"10W\", \"6時間\", \"60Wh\", \"6%\"], [\"ノートPC\", \"50W\", \"3時間\", \"150Wh\", \"15%\"], [\"合計\", \"\", \"\", \"1026Wh\", \"100%\"]]}]"
   }
 ]
