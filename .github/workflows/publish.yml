@@ -3,6 +3,12 @@ on:
   schedule:
     - cron: "0 0 * * 1"  # 毎週月曜 9:00 JST
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "publish: 次の記事を1本公開 / build: 記事は増やさずサイトだけ作り直す"
+        type: choice
+        options: [publish, build]
+        default: publish
 permissions:
   contents: write
   pages: write
@@ -29,7 +35,7 @@ jobs:
           python-version: "3.12"
       - run: pip install anthropic
       - run: python -m unittest discover -s tests
-      - run: python -m autosite.cli publish
+      - run: python -m autosite.cli ${{ inputs.mode || 'publish' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       - uses: actions/upload-pages-artifact@v3
