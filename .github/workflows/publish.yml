@@ -21,6 +21,7 @@ jobs:
       SITE_URL: ${{ vars.SITE_URL }}
       OPERATOR_NAME: ${{ vars.OPERATOR_NAME }}
       AMAZON_TAG: ${{ vars.AMAZON_TAG }}
+      GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

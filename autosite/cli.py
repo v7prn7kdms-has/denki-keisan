@@ -23,6 +23,7 @@ def load_config(preview):
     cfg = {"site_name": os.environ.get("SITE_NAME", ""), "site_url": os.environ.get("SITE_URL", ""),
            "operator": os.environ.get("OPERATOR_NAME", ""), "tag": os.environ.get("AMAZON_TAG", "")}
     missing = [k for k, v in cfg.items() if not v and k != "tag"]
+    cfg["google_verification"] = os.environ.get("GOOGLE_SITE_VERIFICATION", "").strip()
     if missing:
         sys.exit(f"設定が未入力です: {', '.join(missing)}")
     if cfg["tag"] and not re.fullmatch(r"[A-Za-z0-9-]+-22", cfg["tag"]):

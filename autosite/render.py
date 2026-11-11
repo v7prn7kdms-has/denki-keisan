@@ -34,12 +34,19 @@ def promotion(cfg):
     return f"本ページはプロモーションを含みます。{disclosure(cfg)}<br>" if cfg["tag"] else ""
 
 
+def verification(cfg, path):
+    code = cfg.get("google_verification")
+    if path != "index.html" or not code:
+        return ""
+    return f'<meta name="google-site-verification" content="{escape(code)}">'
+
+
 def page(cfg, title, description, body, base, path):
     canonical = f'{cfg["site_url"].rstrip("/")}/{"" if path == "index.html" else path}'
     return f"""<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(description)}">
-<link rel="canonical" href="{escape(canonical)}"><style>{CSS}</style></head><body>
+<link rel="canonical" href="{escape(canonical)}">{verification(cfg, path)}<style>{CSS}</style></head><body>
 <header><a class="brand" href="{base}index.html">{escape(cfg["site_name"])}</a>
 <p class="pr">{promotion(cfg)}本文はAIにより作成し、数値は公式スペックからの自動計算で検証しています。</p></header>
 <main>{body}</main>

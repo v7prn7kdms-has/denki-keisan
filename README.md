@@ -17,6 +17,7 @@ GitHub Actions が毎週月曜 9:00 JST に実行します。
 | Variable | `OPERATOR_NAME` | 開示文に載る運営者名 |
 | Variable | `AMAZON_TAG` | トラッキングID（末尾 `-22`）。登録前は未設定 |
 | Secret | `ANTHROPIC_API_KEY` | 任意。未設定なら計算結果のみの文章で公開 |
+| Variable | `GOOGLE_SITE_VERIFICATION` | 任意。Search Consoleの確認コード（content="…" の中身） |
 | Variable | `BLUESKY_HANDLE` | 任意。未設定なら告知を省略 |
 | Secret | `BLUESKY_APP_PASSWORD` | 任意。Blueskyのアプリパスワード |
 

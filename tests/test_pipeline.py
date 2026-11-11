@@ -154,6 +154,12 @@ class BeforeRegistrationTest(unittest.TestCase):
 
 
 class LinkAndPostTest(unittest.TestCase):
+    def test_verification_tag_only_on_home(self):
+        cfg = dict(CFG, google_verification="abc123")
+        self.assertIn('name="google-site-verification" content="abc123"', render.home(cfg, [], PRODUCTS))
+        self.assertNotIn("google-site-verification", render.about(cfg))
+        self.assertNotIn("google-site-verification", render.home(CFG, [], PRODUCTS))
+
     def test_home_canonical_matches_sitemap(self):
         self.assertIn('rel="canonical" href="https://example.com/"', render.home(CFG, [], PRODUCTS))
 
